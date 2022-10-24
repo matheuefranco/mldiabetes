@@ -22,13 +22,13 @@ def predict():
     p = output
 
     if(p == 0):
-        text = "Você preenche os requisitos para não possuir diabetes, mesmo assim "
+        text = "Not "
     elif(p == 1):
-        text = "Você tem tendência a possuir pré-diabetes, "
+        text = "Pre "
     else:
-        text = "Você tem tendência a possuir diabetes, "
+        text = "Sim "
 
-    return render_template("index.html", prediction_text="DIAGNÓSTICO: " + text + "procure um médico ou uma unidade de saúde.")
+    return render_template("index.html", prediction_text="DIAGNOSTICO: " + text + "procure um medico ou uma unidade de saude.")
 
 @app.route("/api", methods=["POST"])
 def results():

@@ -4,7 +4,7 @@ from flask import Flask, jsonify, request, render_template
 import pickle
 
 app = Flask(__name__)
-model = pickle.load(open("model.pkl", "rb"))
+model = pickle.load(open("modelo.pkl", "rb"))
 
 
 @app.route("/")
@@ -22,11 +22,11 @@ def predict():
     p = output
 
     if(p == 0):
-        text = "Not "
+        text = "Você preenche os requisitos para não possuir diabetes, mesmo assim "
     elif(p == 1):
-        text = "Pre "
+        text = "Você tem tendência a possuir pré-diabetes, "
     else:
-        text = "Sim "
+        text = "Você tem tendência a possuir diabetes, "
 
     return render_template("index.html", prediction_text="DIAGNOSTICO: " + text + "procure um medico ou uma unidade de saude.")
 
